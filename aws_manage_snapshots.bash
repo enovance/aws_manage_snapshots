@@ -222,7 +222,7 @@ getnumkeep() {
 	getnumkeep=()
 	while read -d $'\n'; do
 		getnumkeep+=("$REPLY")
-  done < <(echo "$listofsnapshots" | awk -v  volume="$vol" 'BEGIN { FS=volume;} {if (NF=="2") print $1 }' )
+  done < <(echo "$listofsnapshots" | awk -v  volume="$vol" 'BEGIN { FS=volume;} {if (NF=="2") print $1 }' | tac )
 
 #actually print which snapshots belong to which volumes
 
